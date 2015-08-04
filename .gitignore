@@ -1,0 +1,14 @@
+# Python binaries
+*.pyc
+*.pyo
+*__pycache__*
+
+# hidden files garbage
+*~
+.fuse*
+
+# Installation/setup related
+dist
+*egg**
+MANIFEST
+*.tar.gz
