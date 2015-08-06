@@ -12,3 +12,7 @@ dist
 *egg**
 MANIFEST
 *.tar.gz
+
+# documentation
+doc/build
+doc/source/autodoc_files/*
