@@ -15,6 +15,7 @@
 import sys
 import os
 import shutil
+import subprocess
 import sphinx_rtd_theme
 
 # If extensions (or modules to document with autodoc) are in another directory,
@@ -23,20 +24,45 @@ import sphinx_rtd_theme
 sys.path.insert(0, os.path.abspath('../../'))
 from fsc import *
 
+## ## CUSTOM SETUP
 # create autodoc files
 fsc_folder = '../../fsc/'
 module_list = [name for name in os.listdir(fsc_folder) if (os.path.isdir(fsc_folder + name) and not name.startswith('_'))]
 
-with open('./autodoc_file_template.rst', 'r') as f:
-    template = f.read()
-
-# clear old autodoc files
-autodoc_file_folder = './autodoc_files/'
-shutil.rmtree(autodoc_file_folder)
-os.mkdir(autodoc_file_folder)
+# clear old build files
+modules_build = './modules/'
+try:
+    shutil.rmtree(modules_build)
+except OSError:
+    pass
+os.mkdir(modules_build)
 for module in module_list:
-    with open(autodoc_file_folder + module + '.rst', 'w') as f:
-        f.write(template.format(name=module))
+    os.mkdir(modules_build + module)
+
+with open('./index_template.rst', 'r') as f:
+    index_template = f.read()
+with open('./doc_template.rst', 'r') as f:
+    doc_template = f.read()
+with open('./main_template.rst', 'r') as f:
+    main_template = f.read()
+
+# create index
+module_string = '\n    '.join(['./modules/{name}/main.rst'.format(name=module) for module in module_list])
+with open('./index.rst', 'w') as f:
+    f.write(index_template.format(modules=module_string))
+
+    
+# create new modules_build files
+for module in module_list:
+    module_folder = modules_build + module + '/'
+    shutil.copytree(fsc_folder + module + '/doc_support', module_folder + 'doc_support')
+    subprocess.call("find ./ -type f -exec sed -i 's/{PKG_DIR}/" + '..\/..\/fsc\/' + module + "/g' *.txt  {} \;", cwd=module_folder, shell=True)
+    with open(modules_build + module + '/main.rst', 'w') as f:
+        f.write(main_template.format(name=module))
+    with open(modules_build + module + '/doc.rst', 'w') as f:
+        f.write(doc_template.format(name=module))
+
+## ## END CUSTOM SETUP
 
 # -- General configuration ------------------------------------------------
 
@@ -92,7 +118,7 @@ language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['autodoc_file_template.rst']
+exclude_patterns = ['*template.rst']
 #~ exclude_patterns = ['index.rst']
 
 # The reST default role (used for this markup: `text`) to use for all
@@ -149,7 +175,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-html_logo = "images/fsc_logo.svg"
+html_logo = "images/fsc_logo.jpg"
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32

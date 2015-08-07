@@ -15,4 +15,5 @@ MANIFEST
 
 # documentation
 doc/build
-doc/source/autodoc_files/*
+doc/source/modules/*
+

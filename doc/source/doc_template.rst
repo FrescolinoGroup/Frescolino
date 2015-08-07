@@ -1,5 +1,5 @@
-:mod:`{name}` documentation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+{name}
+======
 
 .. automodule:: fsc.{name}
     :members:
