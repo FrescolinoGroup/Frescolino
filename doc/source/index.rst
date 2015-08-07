@@ -16,7 +16,6 @@ Modules
 .. toctree::
     :maxdepth: 1
 
-    ./modules/foo/main.rst
     ./modules/tpl_py/main.rst
 
 Indices and tables

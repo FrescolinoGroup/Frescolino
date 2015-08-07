@@ -7,8 +7,9 @@
 
 def example_nothing():
     """
-    shows nothing
+    does nothing
     """
+    pass
 
 if __name__ == "__main__":
-    example_nothing    
+    example_nothing() 

@@ -51,12 +51,21 @@ module_string = '\n    '.join(['./modules/{name}/main.rst'.format(name=module) f
 with open('./index.rst', 'w') as f:
     f.write(index_template.format(modules=module_string))
 
-    
+def replace_recursive(old, new, start_folder, modifier):
+    print(start_folder)
+    print("sed -i 's/" + old + "/" + new + "/g' *.rst")
+    subprocess.call("sed -i 's/" + old + "/" + new + "/g' *.rst", cwd=start_folder, shell=True)
+    for name in os.listdir(start_folder):
+        new_folder = start_folder + '/' + name
+        if os.path.isdir(new_folder):
+            replace_recursive(old, modifier + new, new_folder, modifier)
+
 # create new modules_build files
 for module in module_list:
     module_folder = modules_build + module + '/'
-    shutil.copytree(fsc_folder + module + '/doc_support', module_folder + 'doc_support')
-    subprocess.call("find ./ -type f -exec sed -i 's/{PKG_DIR}/" + '..\/..\/fsc\/' + module + "/g' *.txt  {} \;", cwd=module_folder, shell=True)
+    doc_support_folder = module_folder + 'doc_support'
+    shutil.copytree(fsc_folder + module + '/doc_support', doc_support_folder)
+    replace_recursive('{PKG_DIR}', '..\/..\/..\/..\/..\/fsc\/' + module, doc_support_folder, '..\/')
     with open(modules_build + module + '/main.rst', 'w') as f:
         f.write(main_template.format(name=module))
     with open(modules_build + module + '/doc.rst', 'w') as f:
@@ -118,7 +127,7 @@ language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['*template.rst']
+exclude_patterns = ['*template.rst', 'modules/**/doc_support/description.rst']
 #~ exclude_patterns = ['index.rst']
 
 # The reST default role (used for this markup: `text`) to use for all
