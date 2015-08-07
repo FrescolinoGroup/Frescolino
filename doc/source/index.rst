@@ -16,7 +16,7 @@ Modules
 .. toctree::
     :maxdepth: 1
 
-    ./modules/tpl_py/main.rst
+    
 
 Indices and tables
 ==================
