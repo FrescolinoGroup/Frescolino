@@ -67,9 +67,9 @@ for module in module_list:
     shutil.copytree(fsc_folder + module + '/doc_support', doc_support_folder)
     replace_recursive('{PKG_DIR}', '..\/..\/..\/..\/..\/fsc\/' + module, doc_support_folder, '..\/')
     with open(modules_build + module + '/main.rst', 'w') as f:
-        f.write(main_template.format(name=module))
+        f.write(main_template.format(name=module, title_underline="="*len(module)))
     with open(modules_build + module + '/doc.rst', 'w') as f:
-        f.write(doc_template.format(name=module))
+        f.write(doc_template.format(name=module, title_underline="="*len(module)))
 
 ## ## END CUSTOM SETUP
 
@@ -83,7 +83,7 @@ for module in module_list:
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.mathjax'
+    'sphinx.ext.mathjax',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -339,3 +339,7 @@ texinfo_documents = [
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
+
+doxylink = {
+    'foo' : ('/home/bryonak/c/DebugPrinter/doc/sphinx.tag', '/home/bryonak/c/DebugPrinter/doc/build/html/')
+}

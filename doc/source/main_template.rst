@@ -1,5 +1,5 @@
 {name}
-======
+{title_underline}
 
 .. include:: doc_support/description.rst
 

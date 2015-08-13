@@ -1,0 +1,3 @@
+[submodule "fsc/DebugPrinter"]
+	path = fsc/DebugPrinter
+	url = git@gitlab.phys.ethz.ch:frescolino/DebugPrinter.git
