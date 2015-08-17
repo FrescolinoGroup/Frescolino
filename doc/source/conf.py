@@ -63,8 +63,8 @@ def replace_recursive(old, new, start_folder, modifier):
 # create new modules_build files
 for module in module_list:
     module_folder = modules_build + module + '/'
-    doc_support_folder = module_folder + 'doc_support'
-    shutil.copytree(fsc_folder + module + '/doc_support', doc_support_folder)
+    doc_support_folder = module_folder + 'doc/fsc'
+    shutil.copytree(fsc_folder + module + '/doc/fsc', doc_support_folder)
     replace_recursive('{PKG_DIR}', '..\/..\/..\/..\/..\/fsc\/' + module, doc_support_folder, '..\/')
     with open(modules_build + module + '/main.rst', 'w') as f:
         f.write(main_template.format(name=module, title_underline="="*len(module)))
@@ -127,7 +127,7 @@ language = None
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['*template.rst', 'modules/**/doc_support/description.rst']
+exclude_patterns = ['*template.rst', 'modules/**/doc/fsc/description.rst']
 #~ exclude_patterns = ['index.rst']
 
 # The reST default role (used for this markup: `text`) to use for all
@@ -341,5 +341,5 @@ texinfo_documents = [
 #texinfo_no_detailmenu = False
 
 doxylink = {
-    'foo' : ('/home/bryonak/c/DebugPrinter/doc/sphinx.tag', '/home/bryonak/c/DebugPrinter/doc/build/html/')
+    'foo' : ('../../DebugPrinter/doc/fsc/sphinx.tag', '../../DebugPrinter/doc/build/html/')
 }
