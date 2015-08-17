@@ -1,11 +1,11 @@
 {name}
 {title_underline}
 
-.. include:: doc_support/description.rst
+.. include:: doc/fsc/description.rst
 
 .. toctree::
     :maxdepth:  2
 
     Documentation <doc.rst>
-    Tutorial      <doc_support/tutorial.rst>
-    Examples      <doc_support/examples.rst>
+    Tutorial      <doc/fsc/tutorial.rst>
+    Examples      <doc/fsc/examples.rst>
