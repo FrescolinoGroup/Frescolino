@@ -19,9 +19,6 @@ Modules
     ./modules/DebugPrinter/main.rst
 
 
-:foo:`DebugPrinter.hpp`
-
-
 Indices and tables
 ==================
 

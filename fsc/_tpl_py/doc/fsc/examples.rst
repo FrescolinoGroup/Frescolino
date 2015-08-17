@@ -7,4 +7,4 @@ Examples for the python module template.
     :maxdepth:  2
     :glob:
 
-    examples/*
+    example/*

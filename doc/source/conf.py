@@ -84,6 +84,7 @@ for module in module_list:
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.mathjax',
+    'sphinxcontrib.doxylink',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -340,6 +341,6 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
 
-doxylink = {
-    'foo' : ('../../DebugPrinter/doc/fsc/sphinx.tag', '../../DebugPrinter/doc/build/html/')
+doxylink = { # note: project name variable must be lowercase
+    'debugprinter' : ('../fsc/DebugPrinter/doc/fsc/sphinx.tag', '../fsc/DebugPrinter/doc/build/html/')
 }

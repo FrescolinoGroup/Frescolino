@@ -19,9 +19,6 @@ Modules
     {modules}
 
 
-:foo:`DebugPrinter.hpp`
-
-
 Indices and tables
 ==================
 
