@@ -18,6 +18,11 @@ Modules
 
     ./modules/DebugPrinter/main.rst
 
+Contribution
+============
+
+:ref:`convention`
+
 
 Indices and tables
 ==================
