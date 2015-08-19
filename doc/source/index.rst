@@ -16,13 +16,16 @@ Modules
 .. toctree::
     :maxdepth: 1
 
-    ./modules/DebugPrinter/main.rst
     ./modules/ArgParser/main.rst
+    ./modules/DebugPrinter/main.rst
+    a
+    DebugPrinter <../../../fsc/DebugPrinter/doc/build/html/index.html#http://>
+    ArgParser <../../../fsc/Argparser/doc/build/html/index.html#http://>
 
 Contribution
 ============
 
-:ref:`convention`
+* :doc:`style_guide`
 
 
 Indices and tables

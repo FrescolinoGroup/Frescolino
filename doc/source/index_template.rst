@@ -17,11 +17,13 @@ Modules
     :maxdepth: 1
 
     {modules}
+    DebugPrinter <../../../fsc/DebugPrinter/doc/build/html/index.html#http://>
+    ArgParser <../../../fsc/Argparser/doc/build/html/index.html#http://>
 
 Contribution
 ============
 
-:ref:`convention`
+* :doc:`style_guide`
 
 
 Indices and tables
