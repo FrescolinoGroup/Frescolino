@@ -19,6 +19,11 @@ Modules
     ./modules/DebugPrinter/main.rst
     ./modules/ArgParser/main.rst
 
+Contribution
+============
+
+:ref:`convention`
+
 
 Indices and tables
 ==================

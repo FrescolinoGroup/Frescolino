@@ -18,6 +18,11 @@ Modules
 
     {modules}
 
+Contribution
+============
+
+:ref:`convention`
+
 
 Indices and tables
 ==================
