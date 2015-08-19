@@ -1,0 +1,7 @@
+C++:
+
+(http://www.stroustrup.com/bs_faq2.html#Hungarian)
+Public Types (class, struct, usings): UpperCamelCase
+Methods, Variables: underscore_case
+
+Python:

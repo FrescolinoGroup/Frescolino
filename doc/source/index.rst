@@ -17,6 +17,7 @@ Modules
     :maxdepth: 1
 
     ./modules/DebugPrinter/main.rst
+    ./modules/ArgParser/main.rst
 
 
 Indices and tables
