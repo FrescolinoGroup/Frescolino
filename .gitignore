@@ -16,3 +16,4 @@ MANIFEST
 # documentation
 doc/build
 doc/source/modules/*
+doc/source/index.rst

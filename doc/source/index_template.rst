@@ -18,7 +18,7 @@ Modules
 
     {modules}
     DebugPrinter <../../../fsc/DebugPrinter/doc/build/html/index.html#http://>
-    ArgParser <../../../fsc/Argparser/doc/build/html/index.html#http://>
+    ArgParser <../../../fsc/ArgParser/doc/build/html/index.html#http://>
 
 Contribution
 ============
