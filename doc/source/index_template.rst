@@ -1,10 +1,3 @@
-.. image:: images/fsc_logo.jpg
-    :width: 200px
-    :alt: FSC logo
-
-|
-|
-
 .. title:: Overview
 
 Welcome
@@ -25,6 +18,7 @@ Contribution
 
 * :doc:`style_guide`
 * :doc:`todo`
+* :doc:`useful_links`
 
 
 Indices and tables

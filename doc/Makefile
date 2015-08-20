@@ -50,6 +50,9 @@ help:
 
 all: clean html
 
+show:
+	firefox $(HTMLBUILDDIR)/index.html
+
 clean:
 	rm -rf $(BUILDDIR)/*
 	rm -rf $(HTMLBUILDDIR)/*

@@ -12,13 +12,18 @@ Follow or perish!
 C++
 ===
 
-(http://www.stroustrup.com/bs_faq2.html#Hungarian)
 
-Public Types (class, struct, usings): UpperCamelCase
+- Public Types (class, struct, usings): UpperCamelCase
+  (http://www.stroustrup.com/bs_faq2.html#Hungarian)
 
-Methods, Variables: underscore_case
+- Methods, Variables: underscore_case
 
-Make sure folder/module structure matches namespace-structure for user-expected includes
+- Make sure folder/module structure matches namespace-structure for user-expected includes
+
+- Code is required, by a decree of the High Command of His Majesty Emperor C. Frescolino, to compile with these flags at least on gcc (preferably also on icc & clang)::
+
+    -Wall -Wextra -Wpedantic -Werror
+
 
 Python
 ======
