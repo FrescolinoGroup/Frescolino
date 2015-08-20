@@ -18,6 +18,8 @@ Public Types (class, struct, usings): UpperCamelCase
 
 Methods, Variables: underscore_case
 
+Make sure folder/module structure matches namespace-structure for user-expected includes
+
 Python
 ======
 

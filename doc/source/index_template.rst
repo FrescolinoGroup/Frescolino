@@ -24,6 +24,7 @@ Contribution
 ============
 
 * :doc:`style_guide`
+* :doc:`todo`
 
 
 Indices and tables

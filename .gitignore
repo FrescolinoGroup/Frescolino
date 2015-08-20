@@ -17,3 +17,6 @@ MANIFEST
 doc/build
 doc/source/modules/*
 doc/source/index.rst
+
+# if inplace installation
+fsc/*.hpp
