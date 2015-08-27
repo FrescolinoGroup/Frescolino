@@ -10,6 +10,9 @@ import os
 fsc_folder = '../../fsc/'
 
 class Module(object):
+    """
+    Base class for creating doc files.
+    """
     def __init__(self, name):
         self.name = name
         self.doc_folder = fsc_folder + self.name + '/doc/fsc/'
@@ -18,16 +21,32 @@ class Module(object):
         raise NotImplementedError
 
 class DoxygenModule(Module):
+    """
+    Documentation using Doxygen
+    """
     def create(self):
         print('Doxygen')
+        # TODO: copy modname/doc/build/html over into htmlbuilddir/modname and link statically to index.html in the fsc index.rst
+        # IMPORTANT: make htmlbuilddir configurable from the Makefile
         print(self.name)
 
 class SphinxModule(Module):
+    """
+    Documentation using Sphinx
+    """
     def create(self):
         print('Sphinx')
+        # TODO: Check which of description.rst, tutorial.rst and examples.rst are present in the doc/fsc folder, and generate a toctree accordingly.
+        # If something is missing: ... is not available. Please write an angry email to the developer. Personal insults are required. (vary for examples, tutorial, description)
+        # add entry to the main index.rst
         print(self.name)
 
+# TODO: make main index ``subscribe`` & ``build``
+
 def create_module_files(show_hidden=False):
+    """
+    Executes the ``create`` function for each module, according to which tags are present in ``modulename/doc/fsc``.
+    """
     tag_switch = {'doxygen': DoxygenModule, 'sphinx': SphinxModule}
     for name in os.listdir(fsc_folder):
         if name.startswith('_') and not show_hidden:
@@ -35,8 +54,6 @@ def create_module_files(show_hidden=False):
         for tag, mod in tag_switch.items():
             if os.path.isfile(fsc_folder + name + '/doc/fsc/' + tag + '.tag'):
                 mod(name).create()
-    print('*' * 100)
-
     
 #~ def get_modules():
 #~ 
