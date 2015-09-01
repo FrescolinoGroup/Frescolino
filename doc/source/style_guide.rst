@@ -7,8 +7,6 @@ Style Guide
 Follow or perish!
 
 
-
-
 C++
 ===
 
@@ -18,11 +16,20 @@ C++
 
 - Methods, Variables: underscore_case
 
-- Make sure folder/module structure matches namespace-structure for user-expected includes
+- Make sure directory/module structure matches namespace-structure for user-expected includes
 
-- Code is required, by a decree of the High Command of His Majesty Emperor C. Frescolino, to compile with these flags at least on gcc (preferably also on icc & clang)::
+- Code is required, by a decree of the High Command of His Majesty Emperor C. Frescolino, to compile with these flags on gcc:
 
-    -Wall -Wextra -Wpedantic -Werror
+    -Werror -Wall -Wextra -Wpedantic
+
+- It is highly recommended to compile it at least on clang and icc as well. For clang, the following settings are recommended:
+
+    -Werror -Weverything
+
+  and these optionally (plus any deemed useful on a case-by-case basis):
+
+    -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-missing-prototypes -Wno-exit-time-destructors -Wno-global-constructors -Wno-implicit-fallthrough -Wno-disabled-macro-expansion -Wno-documentation-unknown-command
+
 
 
 Python
