@@ -8,7 +8,7 @@
 
 from setuptools import setup
 
-pkgname = '{PKGNAME}'
+pkgname = '{IMPORT_NAME}'
 pkgname_qualified = 'fsc.' + pkgname
 
 with open('doc/description.txt', 'r') as f:
