@@ -20,7 +20,7 @@ except IOError:
     readme = description
 
 with open('version.txt', 'r') as f:
-    version = f.read()
+    version = f.read().strip()
 
 setup(
     name=pkgname_qualified,
