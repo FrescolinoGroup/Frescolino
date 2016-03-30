@@ -28,6 +28,7 @@ setup(
     packages=[
         pkgname_qualified
     ],
+    include_package_data=True,
     author='C. Frescolino',
     description=description,
     long_description=readme,
