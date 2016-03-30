@@ -6,7 +6,8 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = build
-HTMLBUILDDIR  = ../../../website/{FULL_NAME}/2.0
+VERSION = $(shell cat ../version.txt | grep -o -E [0-9]+.[0-9]+)
+HTMLBUILDDIR  = ../../../website/{FULL_NAME}/$(VERSION)
 
 # User-friendly check for sphinx-build
 ifeq ($(shell which $(SPHINXBUILD) >/dev/null 2>&1; echo $$?), 1)
