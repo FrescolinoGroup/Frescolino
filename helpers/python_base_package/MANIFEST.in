@@ -1,6 +1,5 @@
 # include the symlink to the version
 include version.txt
-include fsc/{IMPORT_NAME}/version.txt
 
 # select only the description / README from the doc
 prune doc
