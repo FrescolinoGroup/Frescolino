@@ -18,18 +18,19 @@ def create_module(full_name, import_name, single_file=True):
 
     mod_dest = '../modules/' + full_name
     if single_file:
-        shutil.copytree('./python_module_template', mod_dest)
+        shutil.copytree('python_module_template', mod_dest)
         shutil.move(
             os.path.join(mod_dest, 'fsc', 'mod_tpl.py'),
             os.path.join(mod_dest, 'fsc', import_name + '.py')
         )
     else:
-        shutil.copytree('./python_package_template', mod_dest)
+        shutil.copytree('python_package_template', mod_dest)
         shutil.move(
             os.path.join(mod_dest, 'fsc', 'pkg_tpl'),
             os.path.join(mod_dest, 'fsc', import_name)
         )
-        
+
+    shutil.copytree('python_doc_template', os.path.join(mod_dest, 'doc'))
 
     for path, _, filenames in os.walk(mod_dest):
         for filename in filenames:
