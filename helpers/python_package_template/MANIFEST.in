@@ -1,0 +1,3 @@
+include fsc/{IMPORT_NAME}/version.txt
+
+prune doc
