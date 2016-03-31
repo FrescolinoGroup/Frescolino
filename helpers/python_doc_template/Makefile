@@ -2,10 +2,7 @@
 #
 
 # You can set these variables from the command line.
-SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
-PAPER         =
-BUILDDIR      = build
 VERSION = $(shell cat ../version.txt | grep -o -E [0-9]+.[0-9]+)
 HTMLBUILDDIR  = ../../../website/frescolino/{FULL_NAME}/$(VERSION)
 
@@ -15,13 +12,9 @@ $(error The '$(SPHINXBUILD)' command was not found. Make sure you have Sphinx in
 endif
 
 # Internal variables.
-PAPEROPT_a4     = -D latex_paper_size=a4
-PAPEROPT_letter = -D latex_paper_size=letter
-ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
-# the i18n builder cannot share the environment and doctrees with the others
-I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
+ALLSPHINXOPTS   = -d $(HTMLBUILDDIR)/doctrees source
 
-.PHONY: all help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest coverage gettext
+.PHONY: all help clean html
 
 all: clean html
 
@@ -30,10 +23,10 @@ help:
 	@echo "  html       to make standalone HTML files"
 
 clean:
-	rm -rf $(BUILDDIR)/*
-	rm -rf $(HTMLBUILDDIR)/*
+	rm -rf $(HTMLBUILDDIR)
 
 html:
+	mkdir -p $(HTMLBUILDDIR)
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(HTMLBUILDDIR)
 	@echo
 	@echo "Build finished. The HTML pages are in $(HTMLBUILDDIR)."
