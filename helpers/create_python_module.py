@@ -18,13 +18,15 @@ def create_module(full_name, import_name):
 
     mod_dest = '../modules/' + full_name
     shutil.copytree('python_package_template', mod_dest)
+    pkg_dest = os.path.join(mod_dest, 'fsc', import_name)
     shutil.move(
         os.path.join(mod_dest, 'fsc', 'pkg_tpl'),
-        os.path.join(mod_dest, 'fsc', import_name)
+        pkg_dest
     )
-
+    
     shutil.copytree('python_doc_template', os.path.join(mod_dest, 'doc'))
 
+    # Replace IMPORT_NAME and FULL_NAME
     for path, _, filenames in os.walk(mod_dest):
         for filename in filenames:
             abspath = os.path.join(path, filename)
@@ -32,6 +34,12 @@ def create_module(full_name, import_name):
                 text = f.read()
             with open(abspath, 'w') as f:
                 f.write(text.replace('{IMPORT_NAME}', import_name).replace('{FULL_NAME}', full_name))
+
+    # creating the symlink to the version
+    os.symlink(
+        '../../version.txt',
+        os.path.join(pkg_dest, 'version.txt')
+    )
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
