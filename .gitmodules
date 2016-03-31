@@ -10,3 +10,6 @@
 [submodule "modules/pytiming"]
 	path = modules/pytiming
 	url = git@github.com:FrescolinoGroup/pytiming.git
+[submodule "modules/pylocker"]
+	path = modules/pylocker
+	url = git@github.com:FrescolinoGroup/pylocker.git
