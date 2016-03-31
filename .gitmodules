@@ -4,3 +4,9 @@
 [submodule "fsc/ArgParser"]
 	path = fsc/ArgParser
 	url = git@gitlab.phys.ethz.ch:frescolino/ArgParser.git
+[submodule "cpp_submodules_todo/DebugPrinter"]
+	path = cpp_submodules_todo/DebugPrinter
+	url = git@gitlab.phys.ethz.ch:frescolino/DebugPrinter.git
+[submodule "cpp_submodules_todo/ArgParser"]
+	path = cpp_submodules_todo/ArgParser
+	url = git@gitlab.phys.ethz.ch:frescolino/ArgParser.git
