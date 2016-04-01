@@ -13,3 +13,6 @@
 [submodule "modules/pylocker"]
 	path = modules/pylocker
 	url = git@github.com:FrescolinoGroup/pylocker.git
+[submodule "modules/pyformatting"]
+	path = modules/pyformatting
+	url = git@github.com:FrescolinoGroup/pyformatting.git
