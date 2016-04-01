@@ -2,6 +2,8 @@ cd helpers/
 ./create_python_module.py FancyTestMod ftm
 cd ../modules/FancyTestMod
 
+# the remote github repo will be set up automatically
+
 python setup.py register
 # use your pypi account here
 python setup.py sdist upload

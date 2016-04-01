@@ -41,6 +41,9 @@ def create_remote_repo(full_name):
 def init_git(path, origin):
     subprocess.check_output("git -C {} init".format(path), shell=True)
     subprocess.check_output("git -C {} remote add origin {}".format(path, origin), shell=True)
+    subprocess.check_output("git -C {} add '*'".format(path), shell=True)
+    subprocess.check_output("git -C {} commit -m 'First automated commit'".format(path), shell=True)
+    subprocess.check_output("git -C {} push -u origin master".format(path), shell=True)
 
 def create_module(full_name, import_name):
     existing_modules = os.listdir('../modules')
@@ -76,6 +79,10 @@ def create_module(full_name, import_name):
     # create remote repo on FrescolinoGroup / add CoreDev team with admin rights
     origin = create_remote_repo(full_name)
     init_git(mod_dest, origin)
+    
+    # add submodule
+    shutil.rmtree(mod_dest)
+    subprocess.check_output("git -C ../ submodule add {} ./modules/{}".format(origin, full_name), shell=True)
     
     
     
