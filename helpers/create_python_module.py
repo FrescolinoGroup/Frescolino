@@ -81,7 +81,7 @@ def create_module(full_name, import_name):
     init_git(mod_dest, origin)
     
     # add submodule
-    shutil.rmtree(mod_dest)
+    #~ shutil.rmtree(mod_dest) # not needed
     subprocess.check_output("git -C ../ submodule add {} ./modules/{}".format(origin, full_name), shell=True)
     
     
