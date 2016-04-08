@@ -6,6 +6,6 @@
 # File:    __init__.py
 
 
-import pkgutil
+import pkgutil as _pkgutil
 
-__path__ = pkgutil.extend_path(__path__, __name__)
+__path__ = _pkgutil.extend_path(__path__, __name__)
