@@ -28,6 +28,7 @@ setup(
     packages=[
         pkgname_qualified
     ],
+    url='http://frescolinogroup.github.io/frescolino/{FULL_NAME}/' + '.'.join(version.split('.')[:2]),
     include_package_data=True,
     author='C. Frescolino',
     description=description,
