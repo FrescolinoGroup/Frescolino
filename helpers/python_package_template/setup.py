@@ -31,6 +31,7 @@ setup(
     url='http://frescolinogroup.github.io/frescolino/{FULL_NAME}/' + '.'.join(version.split('.')[:2]),
     include_package_data=True,
     author='C. Frescolino',
+    author_email='frescolino@lists.phys.ethz.ch',
     description=description,
     long_description=readme,
     classifiers=[
