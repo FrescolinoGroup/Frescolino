@@ -16,3 +16,6 @@
 [submodule "modules/pyformatting"]
 	path = modules/pyformatting
 	url = git@github.com:FrescolinoGroup/pyformatting.git
+[submodule "modules/pyexport"]
+	path = modules/pyexport
+	url = git@github.com:FrescolinoGroup/pyexport.git
