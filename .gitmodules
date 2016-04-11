@@ -19,3 +19,6 @@
 [submodule "modules/pyexport"]
 	path = modules/pyexport
 	url = git@github.com:FrescolinoGroup/pyexport.git
+[submodule "modules/pynamespace"]
+	path = modules/pynamespace
+	url = git@github.com:FrescolinoGroup/pynamespace.git
