@@ -10,8 +10,8 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.0"
-   width="56.32246mm"
-   height="63.128036mm"
+   width="57.906815mm"
+   height="61.716911mm"
    id="svg3751"
    inkscape:version="0.91 r13725"
    sodipodi:docname="frescolino_logo.svg">
@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -36,29 +36,29 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1176"
+     inkscape:window-width="928"
+     inkscape:window-height="1148"
      id="namedview6"
      showgrid="false"
-     inkscape:zoom="2.9781429"
-     inkscape:cx="26.06878"
-     inkscape:cy="81.492629"
-     inkscape:window-x="1200"
-     inkscape:window-y="474"
-     inkscape:window-maximized="1"
+     inkscape:zoom="0.85796109"
+     inkscape:cx="70.027883"
+     inkscape:cy="143.28547"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="0"
      inkscape:current-layer="layer4"
      fit-margin-top="0"
-     fit-margin-left="0"
+     fit-margin-left="3"
      fit-margin-right="0"
      fit-margin-bottom="0"
      units="mm" />
   <defs
      id="defs3753" />
   <g
-     transform="translate(53.494663,-86.23595)"
+     transform="translate(61.608525,-88.735662)"
      id="layer1" />
   <g
-     transform="translate(-9.5072935,2.4995201)"
+     transform="translate(-1.3934309,-1.9189776e-4)"
      style="display:none"
      inkscape:label="crystal border"
      id="g4190"
@@ -75,7 +75,7 @@
      id="layer4"
      inkscape:label="crys 1"
      style="display:inline"
-     transform="translate(-9.5072935,2.4995201)">
+     transform="translate(-1.3934309,-1.9189776e-4)">
     <path
        inkscape:connector-curvature="0"
        style="display:inline;opacity:1;fill:#00233b;fill-opacity:1;fill-rule:nonzero;stroke:#00233b;stroke-width:3;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -88,7 +88,7 @@
      id="layer3"
      inkscape:label="F"
      style="display:inline"
-     transform="translate(-9.5072935,2.4995201)"
+     transform="translate(-1.3934309,-1.9189776e-4)"
      sodipodi:insensitive="true">
     <path
        inkscape:connector-curvature="0"
