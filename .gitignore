@@ -12,6 +12,7 @@ dist
 *egg**
 MANIFEST
 *.tar.gz
+pypi_password
 
 # documentation
 doc/build
