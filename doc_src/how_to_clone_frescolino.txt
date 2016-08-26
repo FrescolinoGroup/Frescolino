@@ -1,0 +1,13 @@
+
+git clone ... --recursive
+# maybe there's a git issue (2.7) when cloning recursivly and the renaming the folder...
+# then use:
+git clone ...
+git submodule update --recursive --init
+
+cd Frescolino
+git submodule foreach --recursive git checkout master
+
+# the website repo needs to be called website and reside in the toplevel of Frescolino
+# because the modules build the doc in here
+git clone ...website... website
