@@ -5,3 +5,11 @@ update Apache to Apache 2.0 in setup.py?
 doc_src
   merge as much as possible (how_tos) to helpers/devdoc
   move rest to website repo
+
+clang format enforce via git-commit-hooks
+
+boilerplate code: Frescolino as author?
+
+AUTHORS -> LICENSE w/o authors and year for python as well
+
+YEAR in python files?

@@ -53,6 +53,7 @@ def create_module(full_name, import_name):
 
     mod_dest = '../modules/' + full_name
     shutil.copytree('python_package_template', mod_dest)
+    # rename pkg_tpl to the actual import name in modules/full_name/fsc
     pkg_dest = os.path.join(mod_dest, 'fsc', import_name)
     shutil.move(
         os.path.join(mod_dest, 'fsc', 'pkg_tpl'),
@@ -81,7 +82,6 @@ def create_module(full_name, import_name):
     init_git(mod_dest, origin)
     
     # add submodule
-    #~ shutil.rmtree(mod_dest) # not needed
     subprocess.check_output("git -C ../ submodule add {} ./modules/{}".format(origin, full_name), shell=True)
     
     
