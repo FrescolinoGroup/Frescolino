@@ -1,3 +1,7 @@
 remove python_base_package in helpers?
 
 update Apache to Apache 2.0 in setup.py?
+
+doc_src
+  merge as much as possible (how_tos) to helpers/devdoc
+  move rest to website repo
