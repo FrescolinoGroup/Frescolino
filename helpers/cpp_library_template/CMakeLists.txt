@@ -4,7 +4,7 @@ project({LIBRARY_NAME})
 
 enable_testing()
 
-set(FSC_WEBSITE ../../website/frescolino)
+set(FSC_WEBSITE ${PROJECT_SOURCE_DIR}/../../website/frescolino)
 set(CMAKE_MAJOR_VERSION 0)
 set(CMAKE_MINOR_VERSION 0)
 set(CMAKE_PATCH_VERSION 0)
@@ -23,6 +23,6 @@ set(CMAKE_CXX_FLAGS "-std=c++14 -O3 -march=native -Werror -Wall -Wextra -Wpedant
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
 # add subdirs
-add_subdirectory(${{PROJECT_SOURCE_DIR}}/doc)
-add_subdirectory(${{PROJECT_SOURCE_DIR}}/test)
-add_subdirectory(${{PROJECT_SOURCE_DIR}}/example)
+add_subdirectory(${PROJECT_SOURCE_DIR}/doc)
+add_subdirectory(${PROJECT_SOURCE_DIR}/test)
+add_subdirectory(${PROJECT_SOURCE_DIR}/example)

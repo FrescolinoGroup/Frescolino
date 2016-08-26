@@ -46,6 +46,9 @@ def init_git(path, origin):
     subprocess.check_output("git -C {} push -u origin master".format(path), shell=True)
 
 def create_module(library_name, subnamespace):
+    
+    print(library_name, subnamespace)
+    
     existing_modules = os.listdir('../modules')
     for name in [library_name, subnamespace]:
         if name in existing_modules:
@@ -54,7 +57,7 @@ def create_module(library_name, subnamespace):
     mod_dest = '../modules/' + library_name
     shutil.copytree('cpp_library_template', mod_dest)
     
-    pkg_dest = os.path.join(mod_dest, 'fsc', subnamespace)
+    pkg_dest = os.path.join(mod_dest, 'src', 'fsc', subnamespace)
     
     os.mkdir(pkg_dest)
     
@@ -83,5 +86,5 @@ if __name__ == "__main__":
     parser.add_argument(dest='library_name', type=str)
     parser.add_argument(dest='subnamespace', type=str)
     args = parser.parse_args(sys.argv[1:])
-
+    
     create_module(args.library_name, args.subnamespace)
