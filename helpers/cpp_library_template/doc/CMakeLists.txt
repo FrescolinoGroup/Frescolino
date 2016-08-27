@@ -20,5 +20,5 @@ if(BUILD_DOCUMENTATION)
         COMMENT "Generating API documentation with Doxygen" VERBATIM
     )
 
-    install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/html DESTINATION share/doc)
+    install(DIRECTORY "${FSC_WEBSITE}/${PROJECT_NAME}/${CMAKE_MAJOR_VERSION}.${CMAKE_MINOR_VERSION}" DESTINATION share/doc/${PROJECT_NAME})
 endif()
