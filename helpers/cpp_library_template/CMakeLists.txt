@@ -9,6 +9,11 @@ set(CMAKE_MAJOR_VERSION 0)
 set(CMAKE_MINOR_VERSION 0)
 set(CMAKE_PATCH_VERSION 0)
 
+# if additional cmake modules are needed
+set(CMAKE_MODULE_PATH "/usr/include;/usr/local/include;~/.local/include;~/local/include;${PROJECT_SOURCE_DIR}")
+include(softinstall)
+include(explicit_instantiation)
+
 # compiler & flags
 set(CMAKE_CXX_COMPILER "g++")
 set(CMAKE_CXX_FLAGS "-std=c++14 -O3 -march=native -Werror -Wall -Wextra -Wpedantic")
