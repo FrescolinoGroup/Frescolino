@@ -6,6 +6,8 @@ doc_src
   merge as much as possible (how_tos) to helpers/devdoc
   move rest to website repo
 
+move python_doc_template contents into python_package_template?
+
 clang format enforce via git-commit-hooks
 
 boilerplate code: Frescolino as author?

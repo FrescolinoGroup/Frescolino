@@ -46,9 +46,7 @@ def init_git(path, origin):
     subprocess.check_output("git -C {} push -u origin master".format(path), shell=True)
 
 def create_module(library_name, subnamespace):
-    
-    print(library_name, subnamespace)
-    
+
     existing_modules = os.listdir('../modules')
     for name in [library_name, subnamespace]:
         if name in existing_modules:
@@ -58,8 +56,7 @@ def create_module(library_name, subnamespace):
     shutil.copytree('cpp_library_template', mod_dest)
     
     pkg_dest = os.path.join(mod_dest, 'src', 'fsc', subnamespace)
-    
-    os.mkdir(pkg_dest)
+    os.makedirs(pkg_dest)
     
     # Replace IMPORT_NAME and FULL_NAME
     for path, _, filenames in os.walk(mod_dest):
@@ -70,7 +67,7 @@ def create_module(library_name, subnamespace):
             with open(abspath, 'w') as f:
                 f.write(text.replace('{SUBNAMESPACE}', subnamespace).replace('{LIBRARY_NAME}', library_name).replace('{YEAR}', time.strftime('%Y')))
 
-    return 
+    return ### TODO
     # create remote repo on FrescolinoGroup / add CoreDev team with admin rights
     origin = create_remote_repo(library_name)
     init_git(mod_dest, origin)
