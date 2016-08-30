@@ -9,7 +9,7 @@ if(BUILD_DOCUMENTATION)
     
     set(DOC_DIR ${PROJECT_SOURCE_DIR}/doc)
     # you can specify a mainpage here that will be set in the Doxyfile
-    #~ set(doxy_main_page ${DOC_DIR}/include/mainpage.md)
+    #~ set(doxy_main_page ${PROJECT_SOURCE_DIR}/README.md)
     set(doxyfile_in ${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in)
     set(doxyfile ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
     configure_file(${doxyfile_in} ${doxyfile} @ONLY)
