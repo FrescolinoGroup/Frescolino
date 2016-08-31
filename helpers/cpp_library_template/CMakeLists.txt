@@ -10,17 +10,12 @@ set(CMAKE_MINOR_VERSION 0)
 set(CMAKE_PATCH_VERSION 0)
 
 # if additional cmake modules are needed
-list(APPEND CMAKE_MODULE_PATH
-    /usr/include /usr/local/include ~/.local/include ~/local/include "${PROJECT_SOURCE_DIR}/config")
-include(fsc/softinstall)
+list(APPEND CMAKE_MODULE_PATH 
+    /usr/include /usr/local/include
+    ~/.local/include ../cmake_extensions)
 
-# uninstall target
-configure_file(
-  "${CMAKE_CURRENT_SOURCE_DIR}/config/cmake_uninstall.cmake.in"
-  "${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake"
-  IMMEDIATE @ONLY)
-add_custom_target(uninstall
-  COMMAND ${CMAKE_COMMAND} -P ${CMAKE_CURRENT_BINARY_DIR}/cmake_uninstall.cmake)
+include(fsc/softinstall)
+include(fsc/uninstall)
 
 # compiler & flags
 set(CMAKE_CXX_COMPILER "g++")
