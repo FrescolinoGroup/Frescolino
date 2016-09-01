@@ -17,3 +17,5 @@ AUTHORS -> LICENSE w/o authors and year for python as well
 YEAR in python files?
 
 grab description.txt content and add it to the Doxyfile PROJECT_BRIEF variable?
+
+doc: manpages
