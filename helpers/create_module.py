@@ -72,6 +72,7 @@ def create_module(name, namespace, lang):
             os.path.join(mod_dest, 'fsc', 'pkg_tpl'),
             pkg_dest
         )
+        shutil.copytree('python_doc_template', os.path.join(mod_dest, 'doc')) # ToDo: merge with python_package_template
 
     if lang == 'cpp':
         shutil.copytree('cpp_library_template', mod_dest)
