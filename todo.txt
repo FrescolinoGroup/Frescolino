@@ -1,5 +1,3 @@
-remove python_base_package in helpers?
-
 update Apache to Apache 2.0 in setup.py?
 
 doc_src
@@ -21,3 +19,6 @@ grab description.txt content and add it to the Doxyfile PROJECT_BRIEF variable?
 pip install also moving header-only c++ libs to include?
 
 discussed: no manpages
+
+website/frescolino/generate_index.py should first copy from media/
+  also: move this script to helpers/ ? (content generation for modules happens outside too)
