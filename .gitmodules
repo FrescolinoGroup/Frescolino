@@ -22,3 +22,6 @@
 [submodule "modules/pynamespace"]
 	path = modules/pynamespace
 	url = git@github.com:FrescolinoGroup/pynamespace.git
+[submodule "modules/cmake_extensions"]
+	path = modules/cmake_extensions
+	url = git@github.com:FrescolinoGroup/cmake_extensions.git
