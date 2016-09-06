@@ -25,6 +25,3 @@
 [submodule "modules/ArgParser"]
 	path = modules/ArgParser
 	url = git@github.com:FrescolinoGroup/ArgParser.git
-[submodule "modules/DebugPrinter"]
-	path = modules/DebugPrinter
-	url = git@github.com:FrescolinoGroup/DebugPrinter.git

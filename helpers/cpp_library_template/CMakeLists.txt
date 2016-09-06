@@ -12,7 +12,7 @@ set(CMAKE_PATCH_VERSION 0)
 # if additional cmake modules are needed
 list(APPEND CMAKE_MODULE_PATH 
     /usr/include /usr/local/include
-    ~/.local/include ${PROJECT_SOURCE_DIR}/../cmake_extensions)
+    ~/.local/include ../cmake_extensions)
 
 include(fsc/softinstall)
 include(fsc/uninstall)
