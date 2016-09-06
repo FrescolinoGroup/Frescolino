@@ -1,13 +1,11 @@
 # general settings
 cmake_minimum_required (VERSION 3.0)
-project({LIBRARY_NAME})
+project({LIBRARY_NAME}
+        VERSION 0.0.0)
 
 enable_testing()
 
 set(FSC_WEBSITE ${PROJECT_SOURCE_DIR}/../../website/frescolino)
-set(CMAKE_MAJOR_VERSION 0)
-set(CMAKE_MINOR_VERSION 0)
-set(CMAKE_PATCH_VERSION 0)
 
 # if additional cmake modules are needed
 list(APPEND CMAKE_MODULE_PATH 

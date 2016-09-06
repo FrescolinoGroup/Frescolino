@@ -12,3 +12,10 @@ grab description.txt content and add it to the Doxyfile PROJECT_BRIEF variable?
 
 brave proposal: pip install also moving header-only c++ libs to include/ ?
   -> use a Makefile with mkdir build ... instead
+
+Doxyfile version x.y.z drop dot if no z (or y)
+  -> use instead newer project syntax
+     https://cmake.org/cmake/help/v3.0/command/project.html
+
+argparser version in header file
+INPUT_FILTER from DebugPrinter Doxyfile in cpp_library_template?
