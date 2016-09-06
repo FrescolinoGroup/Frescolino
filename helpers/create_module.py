@@ -114,19 +114,17 @@ if __name__ == "__main__":
     parser.add_argument(dest='namespace', type=str, nargs='?', help='module import name / namespace')
     parser.add_argument('language', choices=['python', 'cpp'], nargs='?', help='language template')
     parser.add_argument('--github', action='store_true', help='create a submodule on github (requires rights)')
-    parser.add_argument('--new', action='store_true', help='create an empty module')
 
     args = parser.parse_args()
 
     if not args.github and not args.language:
         exit('Without --github, both namespace and the language need to be specified!')
     
-    if args.new:
-        if module_exists(args.name) or (args.language == 'python' and module_exists(args.namespace)):
-            print('Warning: not creating a module with name {}, as it exists already.'.format(args.name))
-        else:
-            create_module(args.name, args.namespace, args.language)
-            print("Created new {}-module {}".format(args.language, args.name))
+    if module_exists(args.name) or (args.language == 'python' and module_exists(args.namespace)):
+        print('Warning: not creating a module with name {}, as it exists already.'.format(args.name))
+    else:
+        create_module(args.name, args.namespace, args.language)
+        print("Created new {}-module {}".format(args.language, args.name))
 
     # create repo in module directory (can be empty)
     if args.github:
