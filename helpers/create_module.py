@@ -134,8 +134,8 @@ if __name__ == "__main__":
             # create remote repo on FrescolinoGroup / add CoreDev team with admin rights
             origin = create_remote_repo(args.name)
             init_git(project_dir+'/modules/' + args.name, origin)
-
             # add submodule
-            subprocess.check_output("git -C {} submodule add {} ./modules/{}".format(project_dir, origin, name), shell=True)
+            subprocess.check_output("git -C {0} submodule add {1} {0}/modules/{2}".format(project_dir, origin, args.name), shell=True)
+            print("Added {} as a submodule".format(args.name))
         else:
             print("Module {} does not exist! (create with --new)".format(args.name))

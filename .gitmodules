@@ -25,3 +25,6 @@
 [submodule "modules/cmake_extensions"]
 	path = modules/cmake_extensions
 	url = git@github.com:FrescolinoGroup/cmake_extensions.git
+[submodule "/home/msk/Programmieren/eth/frescolino_2.0/modules/ArgParser"]
+	path = /home/msk/Programmieren/eth/frescolino_2.0/modules/ArgParser
+	url = git@github.com:FrescolinoGroup/ArgParser.git
