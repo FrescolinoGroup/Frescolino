@@ -1,24 +1,14 @@
-update Apache to Apache 2.0 in setup.py?
-
-doc_src
-  merge as much as possible (how_tos) to helpers/devdoc
-  move rest to website repo
-
-move python_doc_template contents into python_package_template?
-
 clang format enforce via git-commit-hooks
 
+move python_doc_template contents into python_package_template
 boilerplate code: Frescolino as author?
+AUTHORS -> LICENSE w/o authors and YEAR for python as well
+update Apache to Apache 2.0 in setup.py?
 
-AUTHORS -> LICENSE w/o authors and year for python as well
-
-YEAR in python files?
+merge doc_src how-tos into helpers/devdoc, move rest to ??? (merge with media -> resources ?)
 
 grab description.txt content and add it to the Doxyfile PROJECT_BRIEF variable?
+  -> too long if it's to be the same as on the doc tile page
 
-pip install also moving header-only c++ libs to include?
-
-discussed: no manpages
-
-website/frescolino/generate_index.py should first copy from media/
-  also: move this script to helpers/ ? (content generation for modules happens outside too)
+brave proposal: pip install also moving header-only c++ libs to include/ ?
+  -> use a Makefile with mkdir build ... instead
