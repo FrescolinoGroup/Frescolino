@@ -46,7 +46,11 @@ def create_remote_repo(name):
 
 def init_git(path, origin):
     subprocess.check_output("git -C {} init".format(path), shell=True)
-    subprocess.check_output("git -C {} remote add origin {}".format(path, origin), shell=True)
+    try:
+        subprocess.check_output("git -C {} remote add origin {}".format(path, origin), shell=True)
+    except subprocess.CalledProcessError:
+        subprocess.check_output("git -C {} remote rm origin".format(path), shell=True)
+        subprocess.check_output("git -C {} remote add origin {}".format(path, origin), shell=True)
     try:
         # this command will fail if there is no commit
         subprocess.check_output("git -C {} log".format(path), shell=True)
