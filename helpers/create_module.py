@@ -14,6 +14,8 @@ import time
 import subprocess
 import json
 
+project_dir = os.path.dirname(os.path.abspath(__file__)) + "/.."
+
 def create_remote_repo(name):
     # to get the team id, use
     # curl -u username https://api.github.com/orgs/frescolinogroup/teams
@@ -32,6 +34,10 @@ def create_remote_repo(name):
     print("Creating repository on github")
     re1 = subprocess.check_output(cmd1, shell=True).decode("utf-8")
     re1 = json.loads(re1)
+    
+    if "errors" in re1.keys():
+        raise RuntimeError("Error: {}!".format(re1["errors"][0]["message"]))
+    
     origin = re1["ssh_url"]
     print("Setting admin rights to CoreDev team")
     re2 = subprocess.check_output(cmd2, shell=True)
@@ -41,12 +47,19 @@ def create_remote_repo(name):
 def init_git(path, origin):
     subprocess.check_output("git -C {} init".format(path), shell=True)
     subprocess.check_output("git -C {} remote add origin {}".format(path, origin), shell=True)
-    subprocess.check_output("git -C {} add '*'".format(path), shell=True)
-    subprocess.check_output("git -C {} commit -m 'First automated commit'".format(path), shell=True)
+    try:
+        # this command will fail if there is no commit
+        subprocess.check_output("git -C {} log".format(path), shell=True)
+        print("Existing Repo found...")
+    except subprocess.CalledProcessError:
+        subprocess.check_output("git -C {} add '*'".format(path), shell=True)
+        subprocess.check_output("git -C {} commit -m 'First automated commit'".format(path), shell=True)
+        print("Automatic first commit...")
+    
     subprocess.check_output("git -C {} push -u origin master".format(path), shell=True)
 
 def module_exists(name):
-    existing_modules = os.listdir('../modules')
+    existing_modules = os.listdir(project_dir + '/modules')
     if name in existing_modules:
         return True
     return False
@@ -54,16 +67,12 @@ def module_exists(name):
 
 def create_module(name, namespace, lang):
 
-    if module_exists(name) or (lang == 'python' and module_exists(namespace)):
-        print('Warning: not creating a module with name {}, as it exists already.'.format(name))
-        return
-
-    mod_dest = '../modules/' + name
+    mod_dest = project_dir+'/modules/' + name
     name_tpl = '{UNDEFINED}'
     namespace_tpl = '{UNDEFINED}'
 
     if lang == 'python':
-        shutil.copytree('python_package_template', mod_dest)
+        shutil.copytree(project_dir+'/helpers/python_package_template', mod_dest)
         name_tpl = '{FULL_NAME}'
         namespace_tpl = '{IMPORT_NAME}'
         pkg_dest = os.path.join(mod_dest, 'fsc', namespace)
@@ -75,7 +84,7 @@ def create_module(name, namespace, lang):
         shutil.copytree('python_doc_template', os.path.join(mod_dest, 'doc')) # ToDo: merge with python_package_template
 
     if lang == 'cpp':
-        shutil.copytree('cpp_library_template', mod_dest)
+        shutil.copytree(project_dir+'/helpers/cpp_library_template', mod_dest)
         name_tpl = '{LIBRARY_NAME}'
         namespace_tpl = '{NAMESPACE}'
         pkg_dest = os.path.join(mod_dest, 'src', 'fsc', namespace)
@@ -110,14 +119,21 @@ if __name__ == "__main__":
 
     if not args.github and not args.language:
         exit('Without --github, both namespace and the language need to be specified!')
-
-    create_module(args.name, args.namespace, args.language)
+    
+    if module_exists(args.name) or (args.language == 'python' and module_exists(args.namespace)):
+        print('Warning: not creating a module with name {}, as it exists already.'.format(args.name))
+    else:
+        create_module(args.name, args.namespace, args.language)
+        print("Created new {}-module {}".format(args.language, args.name))
 
     # create repo in module directory (can be empty)
-    if args.github and module_exists(args.name):
-        # create remote repo on FrescolinoGroup / add CoreDev team with admin rights
-        origin = create_remote_repo(args.name)
-        init_git('../modules/' + args.name, origin)
-
-        # add submodule
-        subprocess.check_output("git -C ../ submodule add {} ./modules/{}".format(origin, name), shell=True)
+    if args.github:
+        if module_exists(args.name):
+            # create remote repo on FrescolinoGroup / add CoreDev team with admin rights
+            origin = create_remote_repo(args.name)
+            init_git(project_dir+'/modules/' + args.name, origin)
+            # add submodule
+            subprocess.check_output("git -C {0} submodule add {1} ./modules/{2}".format(project_dir, origin, args.name), shell=True)
+            print("Added {} as a submodule".format(args.name))
+        else:
+            print("Module {} does not exist! (create with --new)".format(args.name))

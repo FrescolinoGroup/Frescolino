@@ -1,9 +1,6 @@
 [submodule "cpp_submodules_todo/DebugPrinter"]
 	path = cpp_submodules_todo/DebugPrinter
 	url = git@gitlab.phys.ethz.ch:frescolino/DebugPrinter.git
-[submodule "cpp_submodules_todo/ArgParser"]
-	path = cpp_submodules_todo/ArgParser
-	url = git@gitlab.phys.ethz.ch:frescolino/ArgParser.git
 [submodule "modules/pytermcolor"]
 	path = modules/pytermcolor
 	url = git@github.com:FrescolinoGroup/pytermcolor.git
@@ -25,3 +22,6 @@
 [submodule "modules/cmake_extensions"]
 	path = modules/cmake_extensions
 	url = git@github.com:FrescolinoGroup/cmake_extensions.git
+[submodule "modules/ArgParser"]
+	path = modules/ArgParser
+	url = git@github.com:FrescolinoGroup/ArgParser.git
