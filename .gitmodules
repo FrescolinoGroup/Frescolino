@@ -22,3 +22,6 @@
 [submodule "modules/DebugPrinter"]
 	path = modules/DebugPrinter
 	url = git@github.com:FrescolinoGroup/DebugPrinter.git
+[submodule "modules/DevDoc"]
+	path = modules/DevDoc
+	url = git@github.com:FrescolinoGroup/DevDoc.git
