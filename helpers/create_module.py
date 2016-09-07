@@ -20,39 +20,41 @@ project_dir = os.path.dirname(os.path.abspath(__file__)) + "/.."
 #~ organisation = None
 organisation = "frescolinogroup"
 team_name = "CoreDev"
+server = "https://api.github.com"
+
+# to get the team id, use
+# curl -u username https://api.github.com/orgs/frescolinogroup/teams
 team_id = "1979134"
 
-def remove_remote_repo(name);
+def remove_remote_repo(name):
     user = input("State your GitHub username: ")
-    cmd1 = "curl -s -u {} https://api.github.com/repos/{}/{} -X DELETE"
+    cmd1 = "curl -s -u {} {}/repos/{}/{} -X DELETE"
     
     if organisation == None:
-        cmd1 = cmd1.format(user, user, name)
+        cmd1 = cmd1.format(user, server, user, name)
     else:
-        cmd1 = cmd1.format(user, organisation, name)
+        cmd1 = cmd1.format(user, server, organisation, name)
     
-    confirm = input("You are about to delete the repo {0}, type '{0}' to confirm:".format(name))
+    confirm = input("You are about to delete the repo {0}, type '{0}' to confirm: ".format(name))
     
     if confirm == name:
         re1 = subprocess.check_output(cmd1, shell=True).decode("utf-8")
-        print("Repo {} was deleted")
+        print("Repo {} was deleted".format(name))
     
 def create_remote_repo(name):
-    # to get the team id, use
-    # curl -u username https://api.github.com/orgs/frescolinogroup/teams
-    # username needs admin rights in the frescolinogroup
 
+    # username needs admin rights in the organisation
     user = input("State your GitHub username: ")
     descr = ""
     
-    if organisation != None:
+    if organisation == None:
         # create the remote repo (-s turns down the progress bar)
-        cmd1 = 'curl -s -u '+user+' https://api.github.com/orgs/frescolinogroup/repos -d \'{"name":"'+name+'","description":"'+descr+'","team_id":'+team_id+'}\''
+        cmd1 = 'curl -s -u {} {}/user/repos -d \'{{"name":"{}","description":"{}"}}\''.format(user, server, name, descr)
     else:
-        cmd1 = 'curl -s -u '+user+' https://api.github.com/user/repos -d \'{"name":"'+name+'","description":"'+descr+'"}\''
+        cmd1 = 'curl -s -u {} {}/orgs/{}/repos -d \'{{"name":"{}","description":"{}","team_id":{}}}\''.format(user, server, organisation, name, descr, team_id)
         
 
-    print("Creating repository on github")
+    print("Creating repository on {}".format(server))
     re1 = subprocess.check_output(cmd1, shell=True).decode("utf-8")
     re1 = json.loads(re1)
     
@@ -62,11 +64,11 @@ def create_remote_repo(name):
     try:
         origin = re1["ssh_url"]
     except KeyError:
-        print("ssh_url not found in response from github... This was the response:\n{}".format(re1))
+        print("ssh_url not found in response from git-server... This was the response:\n{}".format(re1))
     
     if organisation != None:
         # set the admin rights for the team
-        cmd2 = 'curl -s -u {} https://api.github.com/teams/{}/repos/{}/{} -X PUT -d \'{{"permission":"admin"}}\''.format(user, team_id, organisation, name)
+        cmd2 = 'curl -s -u {} {}/teams/{}/repos/{}/{} -X PUT -d \'{{"permission":"admin"}}\''.format(user, server, team_id, organisation, name)
         print("Setting admin rights for {} team".format(team_name))
         re2 = subprocess.check_output(cmd2, shell=True)
 
@@ -167,5 +169,6 @@ if __name__ == "__main__":
             # add submodule
             subprocess.check_output("git -C {0} submodule add {1} ./modules/{2}".format(project_dir, origin, args.name), shell=True)
             print("Added {} as a submodule".format(args.name))
+            #~ remove_remote_repo(args.name)
         else:
             print("Module {} does not exist!".format(args.name))
