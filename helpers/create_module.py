@@ -16,6 +16,27 @@ import json
 
 project_dir = os.path.dirname(os.path.abspath(__file__)) + "/.."
 
+# put the organisation to None if you want to create repos as a user instead
+#~ organisation = None
+organisation = "frescolinogroup"
+team_name = "CoreDev"
+team_id = "1979134"
+
+def remove_remote_repo(name);
+    user = input("State your GitHub username: ")
+    cmd1 = "curl -s -u {} https://api.github.com/repos/{}/{} -X DELETE"
+    
+    if organisation == None:
+        cmd1 = cmd1.format(user, user, name)
+    else:
+        cmd1 = cmd1.format(user, organisation, name)
+    
+    confirm = input("You are about to delete the repo {0}, type '{0}' to confirm:".format(name))
+    
+    if confirm == name:
+        re1 = subprocess.check_output(cmd1, shell=True).decode("utf-8")
+        print("Repo {} was deleted")
+    
 def create_remote_repo(name):
     # to get the team id, use
     # curl -u username https://api.github.com/orgs/frescolinogroup/teams
@@ -23,13 +44,13 @@ def create_remote_repo(name):
 
     user = input("State your GitHub username: ")
     descr = ""
-    team_id = "1979134"
-
-    # create the remote repo (-s turns down the progress bar)
-    cmd1 = 'curl -s -u '+user+' https://api.github.com/orgs/frescolinogroup/repos -d \'{"name":"'+name+'","description":"'+descr+'","team_id":'+team_id+'}\''
-
-    # set the admin rights for the team
-    cmd2 = 'curl -s -u '+user+' https://api.github.com/teams/'+team_id+'/repos/frescolinogroup/'+name+' -X PUT -d \'{"permission":"admin"}\''
+    
+    if organisation != None:
+        # create the remote repo (-s turns down the progress bar)
+        cmd1 = 'curl -s -u '+user+' https://api.github.com/orgs/frescolinogroup/repos -d \'{"name":"'+name+'","description":"'+descr+'","team_id":'+team_id+'}\''
+    else:
+        cmd1 = 'curl -s -u '+user+' https://api.github.com/user/repos -d \'{"name":"'+name+'","description":"'+descr+'"}\''
+        
 
     print("Creating repository on github")
     re1 = subprocess.check_output(cmd1, shell=True).decode("utf-8")
@@ -38,9 +59,16 @@ def create_remote_repo(name):
     if "errors" in re1.keys():
         raise RuntimeError("Error: {}!".format(re1["errors"][0]["message"]))
     
-    origin = re1["ssh_url"]
-    print("Setting admin rights to CoreDev team")
-    re2 = subprocess.check_output(cmd2, shell=True)
+    try:
+        origin = re1["ssh_url"]
+    except KeyError:
+        print("ssh_url not found in response from github... This was the response:\n{}".format(re1))
+    
+    if organisation != None:
+        # set the admin rights for the team
+        cmd2 = 'curl -s -u {} https://api.github.com/teams/{}/repos/{}/{} -X PUT -d \'{{"permission":"admin"}}\''.format(user, team_id, organisation, name)
+        print("Setting admin rights for {} team".format(team_name))
+        re2 = subprocess.check_output(cmd2, shell=True)
 
     return origin
 
@@ -140,4 +168,4 @@ if __name__ == "__main__":
             subprocess.check_output("git -C {0} submodule add {1} ./modules/{2}".format(project_dir, origin, args.name), shell=True)
             print("Added {} as a submodule".format(args.name))
         else:
-            print("Module {} does not exist! (create with --new)".format(args.name))
+            print("Module {} does not exist!".format(args.name))
