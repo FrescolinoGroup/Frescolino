@@ -1,6 +1,7 @@
 # general settings
 cmake_minimum_required (VERSION 3.0)
-project({LIBRARY_NAME} VERSION 0.0)
+project({LIBRARY_NAME}
+        VERSION 0.0.0)
 
 enable_testing()
 
