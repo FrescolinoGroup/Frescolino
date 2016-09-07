@@ -1,6 +1,3 @@
-[submodule "modules/pytermcolor"]
-	path = modules/pytermcolor
-	url = git@github.com:FrescolinoGroup/pytermcolor.git
 [submodule "modules/pytiming"]
 	path = modules/pytiming
 	url = git@github.com:FrescolinoGroup/pytiming.git
