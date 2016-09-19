@@ -5,6 +5,7 @@
 # Date:    30.03.2016 00:29:06 CEST
 # File:    setup.py
 
+import sys
 
 from setuptools import setup
 
@@ -21,6 +22,10 @@ except IOError:
 
 with open('version.txt', 'r') as f:
     version = f.read().strip()
+    
+requirements = []
+if sys.version_info < (3,):
+    requirements.append('fsc')
 
 setup(
     name=pkgname_qualified,
@@ -33,6 +38,7 @@ setup(
     author='C. Frescolino',
     author_email='frescolino@lists.phys.ethz.ch',
     description=description,
+    install_requires=requirements,
     long_description=readme,
     classifiers=[
         'License :: OSI Approved :: Apache Software License',
