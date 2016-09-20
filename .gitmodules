@@ -25,3 +25,6 @@
 [submodule "modules/DevDoc"]
 	path = modules/DevDoc
 	url = git@github.com:FrescolinoGroup/DevDoc.git
+[submodule "modules/stdSupport"]
+	path = modules/stdSupport
+	url = git@github.com:FrescolinoGroup/stdSupport.git
