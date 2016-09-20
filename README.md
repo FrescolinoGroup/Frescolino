@@ -2,7 +2,7 @@ Build Status
 ============
 
 | | |
-|-|-|
+| --- | --- |
 |__ArgParser__|[![Build Status](https://travis-ci.org/FrescolinoGroup/ArgParser.svg?branch=master)](https://travis-ci.org/FrescolinoGroup/ArgParser)|
 |__DebugPrinter__|[![Build Status](https://travis-ci.org/FrescolinoGroup/DebugPrinter.svg?branch=master)](https://travis-ci.org/FrescolinoGroup/DebugPrinter)|
 |__DevDoc__|[![Build Status](https://travis-ci.org/FrescolinoGroup/DevDoc.svg?branch=master)](https://travis-ci.org/FrescolinoGroup/DevDoc)|
