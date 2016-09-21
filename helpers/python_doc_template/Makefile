@@ -30,3 +30,6 @@ html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(HTMLBUILDDIR)
 	@echo
 	@echo "Build finished. The HTML pages are in $(HTMLBUILDDIR)."
+
+view:
+	xdg-open $(HTMLBUILDDIR)/index.html
