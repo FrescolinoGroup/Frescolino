@@ -28,6 +28,6 @@
 [submodule "modules/stdSupport"]
 	path = modules/stdSupport
 	url = git@github.com:FrescolinoGroup/stdSupport.git
-[submodule "modules/pyio_helper"]
-	path = modules/pyio_helper
-	url = git@github.com:FrescolinoGroup/pyio_helper.git
+[submodule "modules/pyiohelper"]
+	path = modules/pyiohelper
+	url = git@github.com:FrescolinoGroup/pyiohelper.git
