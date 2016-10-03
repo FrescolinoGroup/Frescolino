@@ -1,6 +1,12 @@
 # general settings
 cmake_minimum_required (VERSION 3.0)
 
+# compiler: set the compiler BEFORE the project command
+#~ set(CMAKE_C_COMPILER "gcc")
+#~ set(CMAKE_CXX_COMPILER "g++")
+#~ set(CMAKE_C_COMPILER "clang")
+#~ set(CMAKE_CXX_COMPILER "clang++")
+
 project({LIBRARY_NAME}
         VERSION 0.0.0)
 
@@ -16,11 +22,12 @@ list(APPEND CMAKE_MODULE_PATH
 include(fsc/softinstall)
 include(fsc/uninstall)
 
-# compiler & flags
-set(CMAKE_CXX_COMPILER "g++")
-set(CMAKE_CXX_FLAGS "-std=c++14 -O3 -march=native -Werror -Wall -Wextra -Wpedantic")
-#~ set(CMAKE_CXX_COMPILER "clang++")
-#~ set(CMAKE_CXX_FLAGS "-std=c++14 -O3 -march=native -Werror -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-missing-prototypes -Wno-exit-time-destructors -Wno-global-constructors -Wno-implicit-fallthrough -Wno-disabled-macro-expansion -Wno-documentation-unknown-command")
+# flags
+if(CMAKE_CXX_COMPILER_ID MATCHES "(C|c?)lang")
+    set(CMAKE_CXX_FLAGS "-std=c++14 -O3 -march=native -Werror -Weverything -Wno-c++98-compat -Wno-c++98-compat-pedantic -Wno-missing-prototypes -Wno-exit-time-destructors -Wno-global-constructors -Wno-implicit-fallthrough -Wno-disabled-macro-expansion -Wno-documentation-unknown-command -Wno-missing-braces -Wno-documentation")
+else()
+    set(CMAKE_CXX_FLAGS "-std=c++14 -O3 -march=native -Werror -Wall -Wextra -Wpedantic")
+endif()
 
 #~ set(CMAKE_EXE_LINKER_FLAGS "-pg")
 

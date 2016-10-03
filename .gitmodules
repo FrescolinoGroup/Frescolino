@@ -31,3 +31,6 @@
 [submodule "modules/pyiohelper"]
 	path = modules/pyiohelper
 	url = git@github.com:FrescolinoGroup/pyiohelper.git
+[submodule "modules/cppProfiler"]
+	path = modules/cppProfiler
+	url = git@github.com:FrescolinoGroup/cppProfiler.git
