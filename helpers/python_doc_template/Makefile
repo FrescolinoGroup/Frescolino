@@ -12,7 +12,7 @@ $(error The '$(SPHINXBUILD)' command was not found. Make sure you have Sphinx in
 endif
 
 # Internal variables.
-ALLSPHINXOPTS   = -d $(HTMLBUILDDIR)/doctrees source
+ALLSPHINXOPTS   = -n -d $(HTMLBUILDDIR)/doctrees source
 
 .PHONY: all help clean html
 
