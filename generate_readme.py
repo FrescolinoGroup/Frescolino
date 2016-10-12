@@ -27,10 +27,10 @@ def main():
         f.write("Build Status\n")
         f.write("============\n")
         f.write("\n")
-        f.write("| | |\n")
-        f.write("|-|-|\n")
+        f.write("|   |   |\n")
+        f.write("| - | - |\n")
         for mod in travis:
-            f.write("|__{0}__|[![Build Status](https://travis-ci.org/FrescolinoGroup/{0}.svg?branch=master)](https://travis-ci.org/FrescolinoGroup/{0})|\n".format(mod))
+            f.write("| __{0}__ | [![Build Status](https://travis-ci.org/FrescolinoGroup/{0}.svg?branch=master)](https://travis-ci.org/FrescolinoGroup/{0}) |\n".format(mod))
     
 
 if __name__ == "__main__":
