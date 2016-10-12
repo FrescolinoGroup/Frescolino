@@ -22,7 +22,8 @@ for pack in fsc_packages:
     for pkg_version in pypi_proxy.package_releases(pack):
         all_classifiers = pypi_proxy.release_data(pack, pkg_version)['classifiers']
         python_classifiers = (cl for cl in all_classifiers if cl.startswith('Programming Language :: Python ::'))
-        py_versions = [tuple(int(x) for x in cl.split()[-1].split('.')) for cl in python_classifiers]
+        py_versions = [tuple(int(x) for x in cl.split('::')[-1].strip().split('.')) for cl in python_classifiers]
+        
         if any(sys.version_info >= py_version for py_version in py_versions):
             valid_packages.append(pack + '==' + pkg_version)
             break
@@ -50,6 +51,6 @@ setup(
     classifiers=[
         'License :: OSI Approved :: Apache Software License',
     ],
-    install_requires=fsc_packages,
+    install_requires=valid_packages,
     license='Apache',
 )
