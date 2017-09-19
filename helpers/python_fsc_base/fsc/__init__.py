@@ -5,15 +5,17 @@
 # Date:    29.03.2016 10:09:09 CEST
 # File:    __init__.py
 
-import pip
-import pkgutil
-import importlib
+import pip as _pip
+import pkgutil as _pkgutil
+import importlib as _importlib
 
-__path__ = pkgutil.extend_path(__path__, __name__)
+__path__ = _pkgutil.extend_path(__path__, __name__)
 
 # get all modules
-submodules = [mod.key for mod in pip.get_installed_distributions()]
+_submodules = [mod.key for mod in _pip.get_installed_distributions()]
 # filter out those which belong to fsc
-submodules = [name.lstrip('fsc') for name in submodules if name.startswith('fsc.')]
-for modname in submodules:
-    importlib.import_module(modname, package='fsc') 
+_submodules = [name.split('fsc', 1)[1] for name in _submodules if name.startswith('fsc.')]
+for _modname in _submodules:
+    _importlib.import_module(_modname, package='fsc')
+
+__all__ = [name.lstrip('.') for name in _submodules]
