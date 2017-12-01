@@ -11,6 +11,7 @@ Build Status
 | __pyexport__ | [![Build Status](https://travis-ci.org/FrescolinoGroup/pyexport.svg?branch=master)](https://travis-ci.org/FrescolinoGroup/pyexport) |
 | __pyformatting__ | [![Build Status](https://travis-ci.org/FrescolinoGroup/pyformatting.svg?branch=master)](https://travis-ci.org/FrescolinoGroup/pyformatting) |
 | __pyiohelper__ | [![Build Status](https://travis-ci.org/FrescolinoGroup/pyiohelper.svg?branch=master)](https://travis-ci.org/FrescolinoGroup/pyiohelper) |
+| __pyhdf5io__ | [![Build Status](https://travis-ci.org/FrescolinoGroup/pyhdf5io.svg?branch=master)](https://travis-ci.org/FrescolinoGroup/pyhdf5io) |
 | __pylocker__ | [![Build Status](https://travis-ci.org/FrescolinoGroup/pylocker.svg?branch=master)](https://travis-ci.org/FrescolinoGroup/pylocker) |
 | __pynamespace__ | [![Build Status](https://travis-ci.org/FrescolinoGroup/pynamespace.svg?branch=master)](https://travis-ci.org/FrescolinoGroup/pynamespace) |
 | __pytiming__ | [![Build Status](https://travis-ci.org/FrescolinoGroup/pytiming.svg?branch=master)](https://travis-ci.org/FrescolinoGroup/pytiming) |
