@@ -37,3 +37,6 @@
 [submodule "modules/cppProfiler"]
 	path = modules/cppProfiler
 	url = git@github.com:FrescolinoGroup/cppProfiler.git
+[submodule "modules/pyasynctools"]
+	path = modules/pyasynctools
+	url = git@github.com:FrescolinoGroup/pyasynctools.git
