@@ -32,6 +32,7 @@ setup(
         ':python_version >= "3"': [
             'fsc.iohelper',
             'fsc.locker',
+            'fsc.hdf5-io',
         ]
     },
     license='Apache',
