@@ -25,6 +25,7 @@ setup(
         'License :: OSI Approved :: Apache Software License',
     ],
     install_requires=[
+        'setuptools',
         'fsc.export',
         'fsc.formatting',
     ],
