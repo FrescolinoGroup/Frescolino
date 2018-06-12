@@ -34,7 +34,10 @@ setup(
             'fsc.iohelper',
             'fsc.locker',
             'fsc.hdf5-io',
-        ]
+        ],
+        ':python_version >= "3.5"': [
+            'fsc.async-tools',
+        ],
     },
     license='Apache',
 )
